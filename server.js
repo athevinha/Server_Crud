@@ -3,8 +3,10 @@ const cors = require("cors");
 const app = express();
 app.use(cors(corsOptions));
 app.use(express.json());
+
 const db = require("./models");
 const Tutorial = db.tutorials;
+
 db.mongoose
   .connect(db.url, {
     useNewUrlParser: true,
@@ -17,6 +19,7 @@ db.mongoose
     console.log(e);
     process.exit();
   });
+
 var corsOptions = {
   origin: "http://localhost:8081",
 };
